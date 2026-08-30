@@ -5,5 +5,5 @@
 ### Problemset
 
 #### 53. Maximum Subarray
-[notebook](note/maximum_subarray.pdf)
+[write up](note/maximum_subarray.pdf)
 [solution](dsa/maximum_subarray)
