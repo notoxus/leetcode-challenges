@@ -6,15 +6,18 @@
 
 class Solution 
 {
-    public:
+public:
     // Brute Force with Big(O) notation equals O(N^3)
     int maxSubArray(std::vector<int>& nums)
     {
         int maxSum = INT_MIN; // -2^31
-        for(int i = 0; i < nums.size(); i++){
-            for(int j = i; j < nums.size(); j++){
+        for(int i = 0; i < nums.size(); i++)
+        {
+            for(int j = i; j < nums.size(); j++)
+            {
                 int sum = 0;
-                for(int k = i; k <= j; k++){
+                for(int k = i; k <= j; k++)
+                {
                     sum += nums[k];
                 }
                 if(sum > maxSum) maxSum = sum;
@@ -26,13 +29,13 @@ class Solution
     int maxSubArray1(std::vector<int>& nums) 
     {
         int maxSum = INT_MIN; // you can also use int maxSum = nums[0]; instead
-        for(int i = 0; i < nums.size(); i++){
+        for(int i = 0; i < nums.size(); i++)
+        {
             int sum = 0;
-            for(int j = i; j < nums.size(); j++){
+            for(int j = i; j < nums.size(); j++)
+            {
                 sum += nums[j];
-                if(sum > maxSum) {
-                    maxSum = sum;
-                }
+                if(sum > maxSum) maxSum = sum;
             }
         }
         return maxSum;
@@ -44,10 +47,12 @@ class Solution
         int startIndex = 0;
         int endIndex = 0;
 
-        for (int i = 0; i < nums.size(); i++) {
+        for (int i = 0; i < nums.size(); i++) 
+        {
             int sum = 0;
 
-            for (int j = i; j < nums.size(); j++) {
+            for (int j = i; j < nums.size(); j++) 
+            {
                 sum += nums[j];
 
                 if (sum > maxSum) {
@@ -66,11 +71,10 @@ class Solution
 
         std::cout << "The subarray [";
 
-        for (int i = startIndex; i <= endIndex; i++) {
+        for (int i = startIndex; i <= endIndex; i++) 
+        {
             std::cout << nums[i];
-
-            if (i < endIndex)
-                std::cout << ", ";
+            if (i < endIndex) std::cout << ", ";
         }
 
         std::cout << "] has the largest sum " << maxSum << '\n';
@@ -79,13 +83,15 @@ class Solution
 int main()
 {
     int n;
-    if (!(std::cin >> n) || n <= 0) {
+    if (!(std::cin >> n) || n <= 0) 
+    {
         std::cerr << "N must be a positive integer.\n";
         return 1;
     }
 
     std::vector<int> nums(n);
-    for (int& x : nums) {
+    for (int& x : nums) 
+    {
         std::cin >> x;
     }
 
@@ -105,10 +111,10 @@ int main()
         end1 - start1;
 
     std::cout << result << '\n'
-              << "Big(O) - O(N^3) runtime: " << std::fixed << std::setprecision(3)
+              << "Big(O) - O(n^3) runtime: " << std::fixed << std::setprecision(3)
               << runtime.count() << " ms\n"
               << result1 << '\n'
-              << "Big(O) - O(N^2) runtime: " << runtime1.count() << " ms\n";
+              << "Big(O) - O(n^2) runtime: " << runtime1.count() << " ms\n";
     std::cout << sizeof(int) << '\n';
     std::cout << INT_MIN << '\n';
     std::cout << INT_MAX << '\n';
